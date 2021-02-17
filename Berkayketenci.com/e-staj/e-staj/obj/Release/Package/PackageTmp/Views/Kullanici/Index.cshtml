@@ -1,0 +1,39 @@
+﻿
+@{
+    
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutblog.cshtml";
+    
+}
+
+<h2>Kullanıcılar</h2>
+
+<table class="table table-bordered">
+       <tr>
+           <th>ID</th>
+           <th>AD</th>
+           <th>SOYAD</th>
+           <th>MAIL</th>
+           <th>SIFRE</th>
+           <th>ROLES</th>
+           <th>SİL</th>
+           <th>GÜNCELLE</th>
+       </tr>
+    @foreach(var k in Model)
+    {
+        <tr>
+            <td>@k.ID</td>
+            <td>@k.AD</td>
+            <td>@k.SOYAD</td>
+            <td>@k.MAIL</td>
+            <td>@k.SIFRE</td>
+            <td>@k.ROLES</td>
+            <td><a href="/Kullanici/SIL/@k.ID"class="btn btn-danger">SİL</a></td>
+            <td><a href="/kullanici/KullaniciGetir/@k.ID"class="btn btn-danger">GUNCELLE</a></td>
+        </tr>
+    }
+
+
+
+</table>
+<a class="btn btn-primary" href="/Kullanici/KullaniciEkle/">Yeni Kullanıcı Ekle</a>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BKcomModelStoreContainer" CdmEntityContainer="BKcomEntities">
+    <EntitySetMapping Name="tblAdmin">
+      <EntityTypeMapping TypeName="BKcomModel.tblAdmin">
+        <MappingFragment StoreEntitySet="tblAdmin">
+          <ScalarProperty Name="ROLES" ColumnName="ROLES" />
+          <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDosya">
+      <EntityTypeMapping TypeName="BKcomModel.tblDosya">
+        <MappingFragment StoreEntitySet="tblDosya">
+          <ScalarProperty Name="DOSYAADI" ColumnName="DOSYAADI" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOgretmen">
+      <EntityTypeMapping TypeName="BKcomModel.tblOgretmen">
+        <MappingFragment StoreEntitySet="tblOgretmen">
+          <ScalarProperty Name="OGRETMEN" ColumnName="OGRETMEN" />
+          <ScalarProperty Name="STAJYER" ColumnName="STAJYER" />
+          <ScalarProperty Name="BELGE" ColumnName="BELGE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStajerler">
+      <EntityTypeMapping TypeName="BKcomModel.tblStajerler">
+        <MappingFragment StoreEntitySet="tblStajerler">
+          <ScalarProperty Name="KURUM" ColumnName="KURUM" />
+          <ScalarProperty Name="OKUL" ColumnName="OKUL" />
+          <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="BKcomModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

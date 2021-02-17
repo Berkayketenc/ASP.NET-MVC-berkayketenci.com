@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "DosyaGor";
+    Layout = "~/Views/Shared/_LayoutOgretmen.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>AD</th>
+        <th>DOSYA ADI </th>
+        
+
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.ID</td>
+            <td>@m.AD</td>
+            
+            <td>@m.DOSYAADI>
+
+        </tr>
+    }
+
+
+
+</table>
+

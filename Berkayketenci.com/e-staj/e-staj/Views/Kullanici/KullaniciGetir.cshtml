@@ -1,0 +1,36 @@
+﻿@model e_staj.Models.tblAdmin
+@{
+    ViewBag.Title = "KullaniciGetir";
+    Layout = "~/Views/Shared/_Layoutblog.cshtml";
+}
+
+<h2>KullaniciGetir</h2>
+
+@using (Html.BeginForm("Guncelle", "Kullanici", FormMethod.Post))
+{
+<div class="form-group">
+
+    @Html.LabelFor(m => m.ID)
+    @Html.TextBoxFor(m => m.ID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.AD)
+    @Html.TextBoxFor(m => m.AD, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(m => m.SOYAD)
+    @Html.TextBoxFor(m => m.SOYAD, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.MAIL)
+    @Html.TextBoxFor(m => m.MAIL, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.SIFRE)
+    @Html.TextBoxFor(m => m.SIFRE, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.ROLES)
+    @Html.TextBoxFor(m => m.ROLES, new { @class = "form-control" })
+</div>
+
+   <div>
+       <button class="btn btn-warning">Kullanıcı Bilgileri Güncelle</button>
+   </div>
+}

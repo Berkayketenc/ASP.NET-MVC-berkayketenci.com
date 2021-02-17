@@ -1,0 +1,32 @@
+﻿@model e_staj.Models.tblDosya
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutStajyer.cshtml";
+}
+
+<form action="/DosyaEklee/Index" method="post" class="form-group" enctype="multipart/form-data">
+    <div>
+
+        <label>AD/SOYAD</label>
+        <input type="text" class="form-control" name="AD" />
+
+    </div>
+    <label for="desc">Dosya Ön Adı:</label>
+    <input type="text" class="form-control" name="desc" id="desc" />
+    <br />
+
+    <input type="file" class="btn btn-info" name="files" id="file1" />
+    <br />
+    <div></div>
+    <input type="submit" class="btn btn-info"style="margin-top:30px"  />
+</form>
+
+@if (TempData["files"] != null)
+{
+    <ul>
+        @foreach (string file in (string[])TempData["files"])
+        {
+            <li>@file</li>
+        }
+    </ul>
+}

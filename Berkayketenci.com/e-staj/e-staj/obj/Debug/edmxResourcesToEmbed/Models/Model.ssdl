@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BKcomModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BKcom.dbo.Roles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TITLE" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblAdmin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="nvarchar" MaxLength="50" />
+    <Property Name="SOYAD" Type="nvarchar" MaxLength="50" />
+    <Property Name="MAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="SIFRE" Type="nvarchar" MaxLength="50" />
+    <Property Name="ROLES" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblDosya">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOSYAADI" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblOgretmen">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BELGE" Type="int" />
+    <Property Name="STAJYER" Type="int" />
+    <Property Name="OGRETMEN" Type="int" />
+  </EntityType>
+  <EntityType Name="tblStajerler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="nchar" MaxLength="50" />
+    <Property Name="SOYAD" Type="nchar" MaxLength="50" />
+    <Property Name="OKUL" Type="nchar" MaxLength="50" />
+    <Property Name="KURUM" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="BKcomModelStoreContainer">
+    <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDosya" EntityType="Self.tblDosya" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOgretmen" EntityType="Self.tblOgretmen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStajerler" EntityType="Self.tblStajerler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Roles].[ID] AS [ID], 
+    [Roles].[TITLE] AS [TITLE]
+    FROM [dbo].[Roles] AS [Roles]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

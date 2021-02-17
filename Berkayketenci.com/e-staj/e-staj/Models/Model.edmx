@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BKcomModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BKcom.dbo.Roles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITLE" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblAdmin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOYAD" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="SIFRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="ROLES" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblDosya">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOSYAADI" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblOgretmen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BELGE" Type="int" />
+          <Property Name="STAJYER" Type="int" />
+          <Property Name="OGRETMEN" Type="int" />
+        </EntityType>
+        <EntityType Name="tblStajerler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="nchar" MaxLength="50" />
+          <Property Name="SOYAD" Type="nchar" MaxLength="50" />
+          <Property Name="OKUL" Type="nchar" MaxLength="50" />
+          <Property Name="KURUM" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="BKcomModelStoreContainer">
+          <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDosya" EntityType="Self.tblDosya" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOgretmen" EntityType="Self.tblOgretmen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStajerler" EntityType="Self.tblStajerler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Roles].[ID] AS [ID], 
+    [Roles].[TITLE] AS [TITLE]
+    FROM [dbo].[Roles] AS [Roles]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BKcomModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BKcomEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAdmin" EntityType="BKcomModel.tblAdmin" />
+          <EntitySet Name="tblDosya" EntityType="BKcomModel.tblDosya" />
+          <EntitySet Name="tblOgretmen" EntityType="BKcomModel.tblOgretmen" />
+          <EntitySet Name="tblStajerler" EntityType="BKcomModel.tblStajerler" />
+          <EntitySet Name="Roles" EntityType="BKcomModel.Roles" />
+        </EntityContainer>
+        <EntityType Name="tblAdmin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SIFRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ROLES" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblDosya">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOSYAADI" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblOgretmen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BELGE" Type="Int32" />
+          <Property Name="STAJYER" Type="Int32" />
+          <Property Name="OGRETMEN" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblStajerler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="SOYAD" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="OKUL" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="KURUM" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TITLE" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BKcomModelStoreContainer" CdmEntityContainer="BKcomEntities">
+          <EntitySetMapping Name="tblAdmin">
+            <EntityTypeMapping TypeName="BKcomModel.tblAdmin">
+              <MappingFragment StoreEntitySet="tblAdmin">
+                <ScalarProperty Name="ROLES" ColumnName="ROLES" />
+                <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+                <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+                <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDosya">
+            <EntityTypeMapping TypeName="BKcomModel.tblDosya">
+              <MappingFragment StoreEntitySet="tblDosya">
+                <ScalarProperty Name="DOSYAADI" ColumnName="DOSYAADI" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOgretmen">
+            <EntityTypeMapping TypeName="BKcomModel.tblOgretmen">
+              <MappingFragment StoreEntitySet="tblOgretmen">
+                <ScalarProperty Name="OGRETMEN" ColumnName="OGRETMEN" />
+                <ScalarProperty Name="STAJYER" ColumnName="STAJYER" />
+                <ScalarProperty Name="BELGE" ColumnName="BELGE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStajerler">
+            <EntityTypeMapping TypeName="BKcomModel.tblStajerler">
+              <MappingFragment StoreEntitySet="tblStajerler">
+                <ScalarProperty Name="KURUM" ColumnName="KURUM" />
+                <ScalarProperty Name="OKUL" ColumnName="OKUL" />
+                <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="BKcomModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
